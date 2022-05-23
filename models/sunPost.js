@@ -10,7 +10,7 @@ const sunPostSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // referencing a model
     photoUrl: String,
-    date: String,
+    date: Date,
     location: String,
     sun_watchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     description: String,
