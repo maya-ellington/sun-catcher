@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
 
+const commentsSchema = mongoose.Schema({
+    username: String,
+    userId: { type: mongoose.Schema.Types.ObjectId },
+    
+})
+
 const sunPostSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // referencing a model
@@ -10,6 +16,7 @@ const sunPostSchema = new mongoose.Schema(
     description: String,
     sunQuote: { type: mongoose.Schema.Types.ObjectId, ref: "Quote" },
     postType: { type: String, enum: ["sunrise", "sunset"] },
+    comments: [commentsSchema]
   },
   {
     timestamps: true,
