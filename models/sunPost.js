@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const commentsSchema = mongoose.Schema({
     username: String,
     userId: { type: mongoose.Schema.Types.ObjectId },
-    
+    text: String
 })
 
 const sunPostSchema = new mongoose.Schema(
