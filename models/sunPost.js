@@ -15,7 +15,7 @@ const sunPostSchema = new mongoose.Schema(
     // sun_watchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     description: String,
     // sunQuote: { type: mongoose.Schema.Types.ObjectId, ref: "Quote" },
-    postType: { type: String, enum: ["sunrise", "sunset"] },
+    postType: { type: String, enum: ['sunrise', 'sunset'], default: 'sunset' },
     // comments: [commentsSchema]
   },
   {

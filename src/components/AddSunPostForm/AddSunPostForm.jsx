@@ -5,7 +5,12 @@ import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 export default function AddSunEventForm(props){
   const [selectedFile, setSelectedFile] = useState('')
   const [state, setState] = useState({
-    caption: ''
+    user: '',
+    photoUrl: '',
+    date: '',
+    location: '',
+    description: '',
+    postType: ''
   })
 
   function handleFileInput(e){
@@ -25,8 +30,16 @@ export default function AddSunEventForm(props){
              
     const formData = new FormData()
     formData.append('photo', selectedFile)
-    formData.append('caption', state.caption)
-    props.handleAddPost(formData); 
+    formData.append('postType', state.postType)
+    formData.append('date', state.date)
+    formData.append('description', state.description)
+    formData.append('postType', state.postType)
+    formData.append('location', state.location)
+
+
+
+
+    props.handleAddSunPost(formData); 
     
     // Have to submit the form now! We need a function!
   }
@@ -57,12 +70,20 @@ export default function AddSunEventForm(props){
               />   
                <Form.Input
                   className="form-control"
-                  name="descriptions"
-                  value={state.descriptions}
+                  name="description"
+                  value={state.description}
                   placeholder="Any details about your experience"
                   onChange={handleChange}
                   required
-              />                
+              />    
+               <Form.Input
+                  className="form-control"
+                  name="location"
+                  value={state.location}
+                  placeholder="Location"
+                  onChange={handleChange}
+                  required
+              />              
               <Form.Input
                 className="form-control"
                 type="file"

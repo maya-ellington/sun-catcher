@@ -15,3 +15,4 @@ function isLoggedIn(req, res, next){
     res.status(401).json({data: 'not authorized! Please log in'})
 }
 
+module.exports = router;
