@@ -33,7 +33,6 @@ export default function AddSunEventForm(props){
     formData.append('postType', state.postType)
     formData.append('date', state.date)
     formData.append('description', state.description)
-    formData.append('postType', state.postType)
     formData.append('location', state.location)
 
 
@@ -58,7 +57,6 @@ export default function AddSunEventForm(props){
                   value={state.postType}
                   placeholder="Sunrise or Sunset?"
                   onChange={handleChange}
-                  required
               />   
               <Form.Input
                   className="form-control"

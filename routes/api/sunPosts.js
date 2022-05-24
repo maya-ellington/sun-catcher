@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const postsCtrl = require('../../controllers/sunPosts');
+const sunPostsCtrl = require('../../controllers/sunPosts');
 const multer  = require('multer')
 const upload = multer(); // <- handles multipart/formdata requests(photos)
 // /*---------- Public Routes ----------*/
-router.post('/', upload.single('photo'), postsCtrl.create);
-router.get('/', isLoggedIn, postsCtrl.index)
+router.post('/', upload.single('photo'), sunPostsCtrl.create);
+router.get('/', isLoggedIn, sunPostsCtrl.index)
 
 
 /*---------- Protected Routes ----------*/

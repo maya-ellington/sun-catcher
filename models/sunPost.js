@@ -6,6 +6,8 @@ const commentsSchema = mongoose.Schema({
     text: String
 })
 
+const EVENT_TYPE = ['sunrise', 'sunset'];
+
 const sunPostSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // referencing a model
@@ -15,7 +17,7 @@ const sunPostSchema = new mongoose.Schema(
     // sun_watchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     description: String,
     // sunQuote: { type: mongoose.Schema.Types.ObjectId, ref: "Quote" },
-    postType: { type: String, enum: ['sunrise', 'sunset'], default: 'sunset' },
+    postType: { type: String, enum: EVENT_TYPE, default: 'sunset'},
     // comments: [commentsSchema]
   },
   {

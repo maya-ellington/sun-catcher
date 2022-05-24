@@ -24,6 +24,5 @@ export function create(sunPost) {
     })
     .then(res => {
       if(res.ok) return res.json();
-      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!!!')
     })
   }

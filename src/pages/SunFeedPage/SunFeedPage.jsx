@@ -64,44 +64,44 @@ export default function SunFeedPage({user, handleLogout}) {
   }
 
   // R read in crud
-  // async function getSunPosts() {
-  //   try {
-  //     const data = await sunPostsAPI.getAll();
-  //     console.log(data, " this is data,");
-  //     setSunPosts([...data.sunPosts]);
-  //     setLoading(false);
-  //   } catch (err) {
-  //     console.log(err.message, " this is the error");
-  //     setError(err.message);
-  //   }
-  // }
+  async function getSunPosts() {
+    try {
+      const data = await sunPostsAPI.getAll();
+      console.log(data, " this is data,");
+      setSunPosts([...data.sunPosts]);
+      setLoading(false);
+    } catch (err) {
+      console.log(err.message, " this is the error");
+      setError(err.message);
+    }
+  }
 
   // useEffect runs once
   // the component is first rendered (whenever you first view the component)
   // Component Lifecycle in react
-  // useEffect(() => {
-  //   getSunPosts();
-  // }, []);
+  useEffect(() => {
+    getSunPosts();
+  }, []);
 
 
 
-  // if (error) {
-  //   return (
-  //     <>
-  //       <PageHeader handleLogout={handleLogout} user={user}/>
-  //       <ErrorMessage error={error} />;
-  //     </>
-  //   );
-  // }
+  if (error) {
+    return (
+      <>
+        <PageHeader handleLogout={handleLogout} user={user}/>
+        <ErrorMessage error={error} />;
+      </>
+    );
+  }
 
-  // if (loading) {
-  //   return (
-  //     <>
-  //       <PageHeader handleLogout={handleLogout} user={user}/>
-  //       <Loading />
-  //     </>
-  //   );
-  // } 
+  if (loading) {
+    return (
+      <>
+        <PageHeader handleLogout={handleLogout} user={user}/>
+        <Loading />
+      </>
+    );
+  } 
 
   return (
     <Grid centered>
@@ -121,7 +121,7 @@ export default function SunFeedPage({user, handleLogout}) {
             sunPosts={sunPosts}
             numPhotosCol={1}
             isProfile={false}
-            // loading={loading}
+            loading={loading}
             // addComment={addComment}
             // removeComment={removeComment}
             user={user}
