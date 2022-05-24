@@ -12,11 +12,11 @@ const sunPostSchema = new mongoose.Schema(
     photoUrl: String,
     date: Date,
     location: String,
-    sun_watchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    // sun_watchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     description: String,
-    sunQuote: { type: mongoose.Schema.Types.ObjectId, ref: "Quote" },
+    // sunQuote: { type: mongoose.Schema.Types.ObjectId, ref: "Quote" },
     postType: { type: String, enum: ["sunrise", "sunset"] },
-    comments: [commentsSchema]
+    // comments: [commentsSchema]
   },
   {
     timestamps: true,

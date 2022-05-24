@@ -1,6 +1,6 @@
 import tokenService from './tokenService';
 
-const BASE_URL = '/api/posts';
+const BASE_URL = '/api/sunPosts';
 
 export function create(sunPost) {
     return fetch(BASE_URL, {
@@ -12,18 +12,18 @@ export function create(sunPost) {
     
     }).then(res => {
       if(res.ok) return res.json();
-      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
+      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!!')
     })
   }
 
-  export function getAll() {
-    return fetch(BASE_URL, {
-      headers: {
-        'Authorization': 'Bearer ' + tokenService.getToken()
-      }
-    })
-    .then(res => {
-      if(res.ok) return res.json();
-      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
-    })
-  }
+  // export function getAll() {
+  //   return fetch(BASE_URL, {
+  //     headers: {
+  //       'Authorization': 'Bearer ' + tokenService.getToken()
+  //     }
+  //   })
+  //   .then(res => {
+  //     if(res.ok) return res.json();
+  //     throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!!!')
+  //   })
+  // }

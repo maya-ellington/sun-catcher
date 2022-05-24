@@ -12,7 +12,7 @@ export function create(id) {
     }).then(res => res.json());
   }
 
-export function removeLike(id){
+export function removeComment(id){
     return fetch(`${BASE_URL}/likes/${id}`, {
         method: 'DELETE',
         headers: {

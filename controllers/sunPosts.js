@@ -17,12 +17,21 @@ function create(req, res){
         const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
         s3.upload(params, async function(err, data){
 			console.log(err, ' from aws')
-            const post = await SunPost.create({location: req.body.location, date: req.body.date, sun_watchers: req.body.sun_watchers, description: req.body.description, sunQuote: req.body.sunQuote, postType: req.body.postType, user: req.user, photoUrl: data.Location});
-            console.log(post)
+            const sunPost = await SunPost.create({
+                location: req.body.location, 
+                date: req.body.date, 
+                // sun_watchers: req.body.sun_watchers, 
+                description: req.body.description, 
+                // sunQuote: req.body.sunQuote, 
+                postType: req.body.postType, 
+                user: req.user, 
+                photoUrl: data.Location
+            });
+            console.log(sunPost)
 
-            await post.populate('user');
+            await sunPost.populate('user');
 		
-            res.status(201).json({post: post})
+            res.status(201).json({sunPost: sunPost})
         })
 
 
@@ -37,8 +46,8 @@ async function index(req, res){
         // this populates the user when you find the posts
         // so you'll have access to the users information 
         // when you fetch teh posts
-        const posts = await SunPost.find({}).populate('user').exec()
-        res.status(200).json({posts})
+        const sunPosts = await SunPost.find({}).populate('user').exec()
+        res.status(200).json({sunPosts})
     } catch(err){
 
     }
