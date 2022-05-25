@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, Form, Grid, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Segment, Dropdown} from 'semantic-ui-react'
 
 export default function AddSunEventForm(props){
   const [selectedFile, setSelectedFile] = useState('')
@@ -43,20 +43,26 @@ export default function AddSunEventForm(props){
     // Have to submit the form now! We need a function!
   }
 
+  const options = [{key: 'sunrise', text: 'Sunrise', value: 'sunrise'}, {key: 'sunset', text: 'Sunset', value: 'sunset'}]
+
 
   return (
+
     
     <Grid textAlign='center' style={{ height: '25vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Segment>
         
             <Form  autoComplete="off" onSubmit={handleSubmit}>
-            <Form.Input
+            <Form.Dropdown
                   className="form-control"
                   name="postType"
-                  value={state.postType}
+                  value={options.value}
                   placeholder="Sunrise or Sunset?"
+                  fluid
+                  selection
                   onChange={handleChange}
+                  options={options}
               />   
               <Form.Input
                   className="form-control"
