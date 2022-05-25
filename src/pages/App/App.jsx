@@ -3,6 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
+import ProfilePage from "../ProfilePage/ProfilePage";
+
 import userService from "../../utils/userService";
 import SunFeedPage from "../SunFeedPage/SunFeedPage";
 
@@ -35,6 +37,8 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+      <Route path="/:username" element={<ProfilePage user={user} handleLogout={handleLogout}  />} />
+
       </Routes>
     );
   }
