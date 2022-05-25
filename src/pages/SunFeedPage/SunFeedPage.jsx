@@ -14,6 +14,7 @@ import LandingMessage from "../../components/LandingMessage/LandingMessage";
 
 
 
+
 export default function SunFeedPage({user, handleLogout}) {
   console.log(sunPostsAPI, " <-- sunPostsAPI")
   const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of the each post in the posts array
@@ -45,10 +46,6 @@ export default function SunFeedPage({user, handleLogout}) {
   // }
 
 
-
-  // C create in Crud
-  // we invoke this function in addPost component when the submit button on our form is clicked
-  // so we need to pass it as a prop
   async function handleAddSunPost(sunPost) {
     try {
       setLoading(true);
@@ -64,7 +61,6 @@ export default function SunFeedPage({user, handleLogout}) {
     }
   }
 
-  // R read in crud
   async function getSunPosts() {
     try {
       const data = await sunPostsAPI.getAll();

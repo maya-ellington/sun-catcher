@@ -7,7 +7,7 @@ const s3 = new S3();
 module.exports = {
     create,
     index,
-    // delete
+    deleteSunPost
 }
 
 function create(req, res){
@@ -53,4 +53,14 @@ async function index(req, res){
         console.log(err)
         res.json({data: err})
     }
+}
+
+function deleteSunPost(req, res) {
+    SunPost.findOneAndDelete(
+        // Ensue that the book was created by the logged in user
+        {_id: req.params.id, user: req.user._id}, function(err) {
+          // Deleted book, so must redirect to index
+          res.redirect('/');
+        }
+      );
 }

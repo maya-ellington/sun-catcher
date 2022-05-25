@@ -31,18 +31,13 @@ export default function SunPostCard( {sunPost, isProfile, user}){
             <Card.Description>{sunPost.location}</Card.Description>
             <Card.Description>{sunPost.date}</Card.Description>
             <Card.Description>{sunPost.postType}</Card.Description>
-            <Button
-                type="submit"
-                className="btn"
-              >
-                EDIT
-              </Button>
-            <Button
-                type="submit"
-                className="btn"
-              >
-                DELETE
-              </Button>
+            {isProfile ? (
+            ""
+          ) : (
+      <form action="/sunPosts/<%= sunPosts._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+  )}
 
           </Card.Content>
         </Card>
