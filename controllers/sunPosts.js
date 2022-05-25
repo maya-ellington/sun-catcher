@@ -20,9 +20,8 @@ function create(req, res){
             const sunPost = await SunPost.create({
                 location: req.body.location, 
                 date: req.body.date, 
-                // sun_watchers: req.body.sun_watchers, 
                 description: req.body.description, 
-                // sunQuote: req.body.sunQuote, 
+                sunQuote: req.body.sunQuote, 
                 postType: req.body.postType, 
                 user: req.user, 
                 photoUrl: data.Location
@@ -47,8 +46,11 @@ async function index(req, res){
         // so you'll have access to the users information 
         // when you fetch teh posts
         const sunPosts = await SunPost.find({}).populate('user').exec()
+        console.log(sunPosts)
         res.status(200).json({sunPosts})
+        
     } catch(err){
-
+        console.log(err)
+        res.json({data: err})
     }
 }

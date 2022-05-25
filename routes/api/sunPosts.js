@@ -11,8 +11,12 @@ router.get('/', isLoggedIn, sunPostsCtrl.index)
 /*---------- Protected Routes ----------*/
 
 function isLoggedIn(req, res, next){
-    if(req.user) next();
-    res.status(401).json({data: 'not authorized! Please log in'})
+    console.log(req.user, 'isloggedin req.user')
+    if(req.user){
+		next()
+	} else {
+		res.status(401).json({data: 'Not Authorized!'})
+	}
 }
 
 module.exports = router;

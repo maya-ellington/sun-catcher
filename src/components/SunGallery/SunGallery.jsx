@@ -15,14 +15,14 @@ export default function SunGallery({sunPosts, numPhotosCol, isProfile, loading, 
             <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
           </Segment>
         ) : null}
-        {sunPosts.map((post) => {
+        {sunPosts.map((sunPost) => {
           return (
             <SunPostCard
-              post={post}
-              key={post._id}
+              sunPost={sunPost}
+              key={sunPost._id}
               isProfile={isProfile}
-              addComment={addComment}
-              removeComment={removeComment}
+              // addComment={addComment}
+              // removeComment={removeComment}
               user={user}
             />
           );

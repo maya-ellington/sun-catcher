@@ -115,8 +115,8 @@ export default function SunFeedPage({user, handleLogout}) {
           <AddSunPostForm handleAddSunPost={handleAddSunPost} />
         </Grid.Column>
       </Grid.Row>
-      <Grid.Row>
-        <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Row style={{ marginTop: 200 }}>
+        <Grid.Column style={{ maxWidth: 1000 }}>
           <SunGallery
             sunPosts={sunPosts}
             numPhotosCol={1}
