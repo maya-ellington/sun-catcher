@@ -3,7 +3,7 @@ import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import SunPostCard from '../SunPostCard/SunPostCard';
 import Loader from '../Loader/Loader';
 
-export default function SunGallery({sunPosts, numPhotosCol, isProfile, loading, addComment, removeComment, user }){
+export default function SunGallery({removeSunPost, sunPosts, numPhotosCol, isProfile, loading, addComment, removeComment, user }){
 
     return (
         <Card.Group itemsPerRow={numPhotosCol} stackable>
@@ -21,6 +21,7 @@ export default function SunGallery({sunPosts, numPhotosCol, isProfile, loading, 
               sunPost={sunPost}
               key={sunPost._id}
               isProfile={isProfile}
+              removeSunPost={removeSunPost}
               // addComment={addComment}
               // removeComment={removeComment}
               user={user}

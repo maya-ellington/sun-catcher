@@ -55,12 +55,13 @@ async function index(req, res){
     }
 }
 
-function deleteSunPost(req, res) {
-    SunPost.findOneAndDelete(
-        // Ensue that the book was created by the logged in user
-        {_id: req.params.id, user: req.user._id}, function(err) {
-          // Deleted book, so must redirect to index
-          res.redirect('/');
-        }
-      );
+async function deleteSunPost(req, res) {
+    try {
+        const sunPost = await SunPost.findOneAndDelete({_id: req.params.id, user: req.user._id});
+        console.log(sunPost, " <-= post in delete!")
+        res.json({data: 'post removed'})
+    } catch(err){
+        res.status(400).json({err})
+    }
+    
 }

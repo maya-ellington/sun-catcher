@@ -43,18 +43,22 @@ export default function AddSunEventForm(props){
     // Have to submit the form now! We need a function!
   }
 
-  const options = [{key: 'sunrise', text: 'Sunrise', value: 'sunrise'}, {key: 'sunset', text: 'Sunset', value: 'sunset'}]
-
 
   return (
-
     
     <Grid textAlign='center' style={{ height: '25vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Segment>
         
             <Form  autoComplete="off" onSubmit={handleSubmit}>
-            <Form.Dropdown
+            <Form.Input
+                  className="form-control"
+                  name="postType"
+                  value={state.postType}
+                  placeholder="Sunrise or Sunset?"
+                  onChange={handleChange}
+              />   
+             {/* <Form.Dropdown
                   className="form-control"
                   name="postType"
                   value={options.value}
@@ -63,7 +67,7 @@ export default function AddSunEventForm(props){
                   selection
                   onChange={handleChange}
                   options={options}
-              />   
+              />   */}
               <Form.Input
                   className="form-control"
                   name="date"

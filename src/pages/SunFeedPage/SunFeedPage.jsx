@@ -80,6 +80,12 @@ export default function SunFeedPage({user, handleLogout}) {
     getSunPosts();
   }, []);
 
+  async function deleteSunPost(id) {
+    const data = await sunPostsAPI.removeSunPost(id)
+    getSunPosts();
+    console.log(data)
+  }
+
 
 
   if (error) {
@@ -126,6 +132,7 @@ export default function SunFeedPage({user, handleLogout}) {
             loading={loading}
             // addComment={addComment}
             // removeComment={removeComment}
+            removeSunPost={deleteSunPost}
             user={user}
           />
         </Grid.Column>

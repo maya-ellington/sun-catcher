@@ -2,7 +2,12 @@ import React from "react";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default function SunPostCard( {sunPost, isProfile, user}){
+export default function SunPostCard( {removeSunPost, sunPost, isProfile, user}){
+    // const clickHandler = removeSunPost(sunPost._id)
+    const clickHandler = () => {
+        console.log('clickHandler');
+        removeSunPost(sunPost._id)
+      }
     return (
         <Card key={sunPost._id} raised>
           {isProfile ? (
@@ -34,9 +39,7 @@ export default function SunPostCard( {sunPost, isProfile, user}){
             {isProfile ? (
             ""
           ) : (
-      <form action="/sunPosts/<%= sunPosts._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
+        <button onClick={clickHandler} type="submit">Delete</button>
   )}
 
           </Card.Content>
