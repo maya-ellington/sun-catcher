@@ -10,6 +10,7 @@ import * as sunPostsAPI from "../../utils/sunPostApi";
 import * as commentsAPI from '../../utils/commentsApi';
 
 import { Grid } from "semantic-ui-react";
+import LandingMessage from "../../components/LandingMessage/LandingMessage";
 
 
 
@@ -108,6 +109,11 @@ export default function SunFeedPage({user, handleLogout}) {
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user}/>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
+          <LandingMessage />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
