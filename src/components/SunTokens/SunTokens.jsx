@@ -1,8 +1,10 @@
 import React from "react";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
+
 
 
 export default function SunTokens( {sunPost, user}){
     return (
-        <h1>gonna be sun tokens here</h1>
-    )
+        <Icon name="sun">Sun Tokens</Icon>
+        )
 }
