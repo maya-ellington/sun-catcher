@@ -29,18 +29,16 @@ export default function SunPostCard( {removeSunPost, sunPost, isProfile, user}){
                 </Link>
               </Card.Header>
             </Card.Content>
+            
           )}
-    
-          <Image src={`${sunPost.photoUrl}`} wrapped ui={false} />
+        <Image src={`${sunPost.photoUrl}`} wrapped ui={false} />
           <Card.Content>
             <Card.Description>{sunPost.location}</Card.Description>
             <Card.Description>{sunPost.date}</Card.Description>
             <Card.Description>{sunPost.postType}</Card.Description>
-            {isProfile ? (
-            ""
-          ) : (
+          
         <button onClick={clickHandler} type="submit">Delete</button>
-  )}
+
 
           </Card.Content>
         </Card>
