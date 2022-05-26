@@ -15,7 +15,7 @@ export default function SunPostCard( {removeSunPost, sunPost, isProfile, user}){
           ) : (
             <Card.Content textAlign="left">
               <Card.Header>
-                <Link to={`/${sunPost.user.username}`}>
+                {/* <Link to={`/${sunPost.user.username}`}>
                   <Image
                     size="large"
                     avatar
@@ -26,7 +26,7 @@ export default function SunPostCard( {removeSunPost, sunPost, isProfile, user}){
                     }
                   />
                   {sunPost.user.username}
-                </Link>
+                </Link> */}
               </Card.Header>
             </Card.Content>
             

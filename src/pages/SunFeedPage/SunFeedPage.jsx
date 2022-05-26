@@ -71,7 +71,7 @@ export default function SunFeedPage({user, handleLogout}) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.sunrise, "<-- initial render");
-        setSunApiData({ data: data.sunrise});
+        // setSunApiData({ data: data.sunrise});
       });
   }
   
