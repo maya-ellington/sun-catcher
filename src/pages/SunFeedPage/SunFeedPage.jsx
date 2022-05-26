@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Grid } from "semantic-ui-react";
 
 import PageHeader from "../../components/Header/Header";
 import AddSunPostForm from "../../components/AddSunPostForm/AddSunPostForm";
 import SunGallery from "../../components/SunGallery/SunGallery";
 import SunSearch from "../../components/SunSearch/SunSearch";
-
+import LandingMessage from "../../components/LandingMessage/LandingMessage";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 
 import * as sunPostsAPI from "../../utils/sunPostApi";
-// import * as commentsAPI from '../../utils/commentsApi';
 
-import { Grid } from "semantic-ui-react";
-import LandingMessage from "../../components/LandingMessage/LandingMessage";
+
 
 
 
@@ -22,31 +21,7 @@ export default function SunFeedPage({user, handleLogout}) {
   const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of the each post in the posts array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-
-  // async function addComment(sunPostId){
-  //   try {
-  //     const data = await commentsAPI.create(sunPostId)
-  //     console.log(data, ' <- the response from the server when we make a comment');
-  //     getSunPosts(); // <- to go get the updated posts with the comment
-  //   } catch(err){
-  //     console.log(err)
-  //     setError(err.message)
-  //   }
-  // }
-
-  // async function removeComment(commentId){
-  //   try {
-  //     const data = await commentsAPI.removeComment(commentId);
-  //     console.log(data, '<-  this is the response from the server when we remove a comment')
-  //     getSunPosts()
-      
-  //   } catch(err){
-  //     console.log(err);
-  //     setError(err.message);
-  //   }
-  // }
-
+  const [sunApiData, setSunApiData] = useState({});
 
   async function handleAddSunPost(sunPost) {
     try {
@@ -89,6 +64,23 @@ export default function SunFeedPage({user, handleLogout}) {
   }
 
 
+  
+  function makeApiCall() {
+    const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=${process.env.REACT_APP_SUN_API}=1.1.1.1`;
+    fetch(sunUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.sunrise, "<-- initial render");
+        setSunApiData({ data: data.sunrise});
+      });
+  }
+  
+  useEffect(() => {
+    makeApiCall();
+  }, []);
+    
+
+
 
   if (error) {
     return (
@@ -117,7 +109,7 @@ export default function SunFeedPage({user, handleLogout}) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <SunSearch />
+          <SunSearch sunApiData={sunApiData}/>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
