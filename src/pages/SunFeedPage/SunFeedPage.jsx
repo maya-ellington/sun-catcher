@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
 import AddSunPostForm from "../../components/AddSunPostForm/AddSunPostForm";
 import SunGallery from "../../components/SunGallery/SunGallery";
+import SunSearch from "../../components/SunSearch/SunSearch";
+
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 
@@ -111,6 +113,11 @@ export default function SunFeedPage({user, handleLogout}) {
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user}/>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <SunSearch />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
