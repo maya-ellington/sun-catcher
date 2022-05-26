@@ -3,8 +3,8 @@ import { Card, Icon, Image, Button } from "semantic-ui-react";
 
 
 
-export default function SunTokens( {sunPost, user}){
+export default function SunTokens( {sunTokens }){
     return (
-        <Icon name="sun">{sunPost}Sun Tokens</Icon>
+        <Icon name="sun">{sunTokens}Sun Tokens</Icon>
         )
 }

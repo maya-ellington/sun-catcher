@@ -22,18 +22,31 @@ export default function ProfilePage(props) {
     const [error, setError] = useState("");
     const [user, setUser] = useState({});
     const [sunPosts, setPosts] = useState([]);
+    const [sunTokens, setSunTokens] = useState("");
+
     // We need to grab the username out of the url,
     const { username } = useParams();
   
-  
+    function ObjectLength( object ) {
+        var length = 0;
+        for( var key in object ) {
+            if( object.hasOwnProperty(key) ) {
+                ++length;
+            }
+        }
+        return length;
+    };
   
     async function getProfile() {
       try {
         const data = await userService.getProfile(username);
-        console.log(data, " < -- data");
+        console.log( data.sunPosts, " < -- data");
+
         setLoading(() => false);
         setUser(() => data.user);
         setPosts(() => data.sunPosts);
+        setSunTokens(() => ObjectLength(data.sunPosts))
+        console.log( ObjectLength(data.sunPosts), " < -- ObjectLength(data)");
       } catch (err) {
         console.log(err);
         setError("Profile Doesn't exists, CHECK YOUR TERMINAL FOR EXPRESS!");
@@ -77,7 +90,7 @@ export default function ProfilePage(props) {
         </Grid.Row>
         <Grid.Row centered>
           <Grid.Column style={{ maxWidth: 750 }}>
-          <SunTokens/>
+          <SunTokens sunTokens={sunTokens}/>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
