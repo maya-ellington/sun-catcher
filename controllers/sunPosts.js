@@ -45,15 +45,19 @@ async function index(req, res){
         // this populates the user when you find the posts
         // so you'll have access to the users information 
         // when you fetch teh posts
-        const sunPosts = await SunPost.find({user:req.user}).populate('user').exec()
-        console.log(sunPosts.length, 'SUNPOSTS.LENGTH')
-        res.status(200).json({sunPosts})
+        const sunPosts = await SunPost.find({}).populate('user').exec()
+
+        const sunTokens = sunPosts.length
+        console.log(sunTokens, 'SUNPOSTS.LENGTH')
+        res.status(200).json({sunPosts, sunTokens})
         
     } catch(err){
         console.log(err)
         res.json({data: err})
     }
 }
+
+
 
 async function deleteSunPost(req, res) {
     try {

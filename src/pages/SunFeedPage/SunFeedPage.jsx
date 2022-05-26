@@ -7,7 +7,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 
 import * as sunPostsAPI from "../../utils/sunPostApi";
-import * as commentsAPI from '../../utils/commentsApi';
+// import * as commentsAPI from '../../utils/commentsApi';
 
 import { Grid } from "semantic-ui-react";
 import LandingMessage from "../../components/LandingMessage/LandingMessage";
