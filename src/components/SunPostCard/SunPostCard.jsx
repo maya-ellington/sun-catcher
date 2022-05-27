@@ -27,7 +27,7 @@ export default function SunPostCard({ removeSunPost, sunPost, isProfile }){
             <Card.Description>{sunPost.date}</Card.Description>
             <Card.Description>{sunPost.postType}</Card.Description>
           </Card.Content>
-          <button onClick={clickHandler} type="submit">Delete</button>
+          <button className="delete-button" onClick={clickHandler} type="submit">Delete</button>
         </Card>
       )
     }
