@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, Image, Segment } from "semantic-ui-react";
 
 import PageHeader from "../../components/Header/Header";
 import SunGallery from "../../components/SunGallery/SunGallery";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import SunTokens from "../../components/SunTokens/SunTokens";
 import Loading from "../../components/Loader/Loader";
-
-import * as sunPostsAPI from "../../utils/sunPostApi";
-// import * as commentsAPI from '../../utils/commentsApi';
-
 
 import { useParams } from "react-router-dom";
 
@@ -82,6 +78,7 @@ export default function ProfilePage(props) {
     }
   
     return (
+
       <Grid>
         <Grid.Row>
           <Grid.Column>
@@ -90,7 +87,7 @@ export default function ProfilePage(props) {
         </Grid.Row>
         <Grid.Row centered>
           <Grid.Column style={{ maxWidth: 750 }}>
-          <SunTokens sunTokens={sunTokens}/>
+          <SunTokens sunTokens={sunTokens} user={props.user}/>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
