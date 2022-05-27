@@ -61,7 +61,7 @@ export default function SunFeedPage({user, handleLogout}) {
 
   
   function makeApiCall() {
-    const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=${process.env.REACT_APP_SUN_API}`;
+    const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=1f7fd86ccb7341f6abbe22aa5ba3b6b2`;
     fetch(sunUrl)
       .then((res) => res.json())
       .then((data) => {

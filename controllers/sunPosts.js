@@ -44,7 +44,7 @@ async function index(req, res){
     try {
         const sunPosts = await SunPost.find({}).populate('user').exec()
 
-        //counts number of posts per user and passes to json
+        //counts number of posts per user and passes to json - FAVORITE
         const sunTokens = sunPosts.length
         res.status(200).json({sunPosts, sunTokens})
         
