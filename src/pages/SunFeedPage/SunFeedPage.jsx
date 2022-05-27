@@ -120,7 +120,7 @@ export default function SunFeedPage({user, handleLogout}) {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row style={{ marginTop: 200 }}>
-        <Grid.Column style={{ maxWidth: 1000 }}>
+        <Grid.Column style={{ maxWidth: 1200 }}>
           <SunGallery
             sunPosts={sunPosts}
             numPhotosCol={1}

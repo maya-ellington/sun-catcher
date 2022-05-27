@@ -48,7 +48,7 @@ export default function ProfilePage(props) {
       }
     }
   
-    
+
     useEffect(() => {
       getProfile();
     }, []);
@@ -90,7 +90,7 @@ export default function ProfilePage(props) {
           <SunGallery
               isProfile={true}
               sunPosts={sunPosts}
-              numPhotosCol={3}
+              numPhotosCol={4}
               user={user}
             />
           </Grid.Column>
