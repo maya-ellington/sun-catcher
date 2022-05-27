@@ -66,12 +66,13 @@ export default function SunFeedPage({user, handleLogout}) {
 
   
   function makeApiCall() {
-    const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=${process.env.REACT_APP_SUN_API}=1.1.1.1`;
+    const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=${process.env.REACT_APP_SUN_API}`;
+    console.log(sunUrl)
     fetch(sunUrl)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.sunrise, "<-- initial render");
-        setSunApiData({ data: data.sunrise});
+        setSunApiData({ sunriseTime: data.sunrise});
       });
   }
   

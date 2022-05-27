@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
 
 
-export default function SunTokens(sunApiData){
 
-    const handleButton = () => {
-        console.log(handleButton);
-        // handleButton(sunApiData._id)
-      }
+export default function SunSearch({sunApiData}){
+    const [sunriseButtonText, setSunriseButtonText] = useState('Sunrise Time for My Location');
 
+    function handleSunriseClick() {
+      setSunriseButtonText('Sunrise:  ' + sunApiData.sunriseTime + ' AM');
+    }
+  
     return (
-    <button onClick={handleButton}>When can I catch the next sunrise/sunset?</button>
-    )
-}
+      <div>
+        <button onClick={handleSunriseClick}>{sunriseButtonText}</button>
+      </div>
+    );
+  }
