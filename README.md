@@ -1,37 +1,32 @@
-## Setup 
+### SunCatcher
+SunCatcher is space where you can collect all of your beautiful sunrise and sunset moments and collect Sun Tokens for each experience you caught, as well as where you can go to get information about the sunrise/sunset time based on your location.
 
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+## Screenshot(s): 
+![Screen Shot 2022-05-27 at 2 45 51 AM](https://user-images.githubusercontent.com/42722554/170675326-f335c948-d4e6-4f52-ba65-d045ff34573f.png)
+
+![Screen Shot 2022-05-27 at 2 25 18 AM](https://user-images.githubusercontent.com/42722554/170674810-6abb91fb-b835-4a73-ab7a-73989e4fe796.png)
 
 
-#### Setup your git repo
+## Technologies Used
+- React
+- MongoDB/Mongoose
+- Express
+- Node.js
+- Javascript
+- CSS
+- API: ipgeolocation.io
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2. Then you can run the following commands in the root of your project 
+## Getting Started: 
+- Heroku: https://sun-catcher-app.herokuapp.com/
+- Trello: https://trello.com/b/cP5QRS17/suncatcher-app
+- ERD:![Screen Shot 2022-05-27 at 2 38 50 AM](https://user-images.githubusercontent.com/42722554/170674107-b39436fb-4064-4f57-89c7-0c8d3990f895.png)
+- Wireframe: ![Screen Shot 2022-05-27 at 2 47 11 AM](https://user-images.githubusercontent.com/42722554/170676075-d26f74c9-118f-4554-8e49-dece49970eee.png)
+![Screen Shot 2022-05-27 at 2 47 19 AM](https://user-images.githubusercontent.com/42722554/170676095-69697421-788b-4eb0-aade-3d9264e88019.png)
 
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be, look at the address in the code github gives you!
-git push -u origin main
-```
+## Next Steps: 
+- Incorporate MapBox to show all locations of sun events entered on form by users
+- Allow users to add their friends who were associated with specific events
+- Users can add comments to posts
+- Update styling! 
+- Sort events by location/date
 
-#### Setup the App
-
-```npm install```
-
-*DOTENV*
-
-`touch .env`
-
-add your variables
-
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
-
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
