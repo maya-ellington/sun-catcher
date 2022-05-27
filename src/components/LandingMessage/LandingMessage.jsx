@@ -1,6 +1,5 @@
 import React from 'react';
-import './LandingMessage.css'
-import { Container, Header } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 
 export default function LandingMessage(props){

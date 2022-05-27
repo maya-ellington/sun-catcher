@@ -20,10 +20,8 @@ export default function SunGallery({removeSunPost, sunPosts, numPhotosCol, isPro
             <SunPostCard
               sunPost={sunPost}
               key={sunPost._id}
-              isProfile={false}
+              isProfile={isProfile}
               removeSunPost={removeSunPost}
-              // addComment={addComment}
-              // removeComment={removeComment}
               user={user}
             />
           );

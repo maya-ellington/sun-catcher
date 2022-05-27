@@ -109,7 +109,7 @@ export default function SunFeedPage({user, handleLogout}) {
   } 
 
   return (
-    <Grid centered className='page'>
+    <Grid centered>
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user}/>

@@ -17,7 +17,7 @@ export default function ProfilePage(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [user, setUser] = useState({});
-    const [sunPosts, setPosts] = useState([]);
+    const [sunPosts, setSunPosts] = useState([]);
     const [sunTokens, setSunTokens] = useState("");
 
     // We need to grab the username out of the url,
@@ -40,7 +40,7 @@ export default function ProfilePage(props) {
 
         setLoading(() => false);
         setUser(() => data.user);
-        setPosts(() => data.sunPosts);
+        setSunPosts(() => data.sunPosts);
         setSunTokens(() => ObjectLength(data.sunPosts))
         console.log( ObjectLength(data.sunPosts), " < -- ObjectLength(data)");
       } catch (err) {
@@ -55,8 +55,6 @@ export default function ProfilePage(props) {
     useEffect(() => {
       getProfile();
     }, []);
-  
-  
   
   
     if (error) {
