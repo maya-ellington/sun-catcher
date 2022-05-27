@@ -47,7 +47,7 @@ export default function SunFeedPage({user, handleLogout}) {
       setSunPosts([...data.sunPosts]);
       setLoading(false);
     } catch (err) {
-      console.log(err.message, " this is the error");
+      // console.log(err.message, " this is the error");
       setError(err.message);
     }
   }
@@ -69,12 +69,13 @@ export default function SunFeedPage({user, handleLogout}) {
   
   function makeApiCall() {
     const sunUrl = `https://api.ipgeolocation.io/astronomy?apiKey=${process.env.REACT_APP_SUN_API}`;
-    console.log(sunUrl)
     fetch(sunUrl)
       .then((res) => res.json())
       .then((data) => {
-        setSunriseApiData({ sunriseTime: data.sunrise});
+        console.log(data.sunrise)
+        setSunriseApiData({sunriseTime: data.sunrise})
         setSunsetApiData({sunsetTime: data.sunset})
+        console.log(sunriseApiData, 'sunriseApiData')
       });
   }
   
@@ -132,8 +133,6 @@ export default function SunFeedPage({user, handleLogout}) {
             numPhotosCol={1}
             isProfile={false}
             loading={loading}
-            // addComment={addComment}
-            // removeComment={removeComment}
             removeSunPost={deleteSunPost}
             user={user}
           />

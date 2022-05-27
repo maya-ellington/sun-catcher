@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 
 
 
-export default function SunSearch({sunApiData}){
+export default function SunSearch({sunriseApiData, sunsetApiData}){
     const [sunriseButtonText, setSunriseButtonText] = useState('Sunrise Time for My Location');
     const [sunsetButtonText, setSunsetButtonText] = useState('Sunset Time for My Location');
 
 
     function handleSunriseClick() {
-      setSunriseButtonText('Sunrise:  ' + sunApiData.sunriseTime + ' AM');
+      setSunriseButtonText('Sunrise:  ' + sunriseApiData.sunriseTime + ' AM');
     }
 
     function handleSunsetClick() {
-      setSunsetButtonText('Sunset:  ' + sunApiData.sunsetTime + ' PM');
+      setSunsetButtonText('Sunset:  ' + sunsetApiData.sunsetTime + ' PM');
     }
   
     return (
