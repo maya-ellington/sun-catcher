@@ -21,7 +21,9 @@ export default function SunFeedPage({user, handleLogout}) {
   const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of the each post in the posts array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [sunApiData, setSunApiData] = useState({});
+  const [sunriseApiData, setSunriseApiData] = useState({});
+  const [sunsetApiData, setSunsetApiData] = useState({});
+
 
   async function handleAddSunPost(sunPost) {
     try {
@@ -71,8 +73,8 @@ export default function SunFeedPage({user, handleLogout}) {
     fetch(sunUrl)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.sunset, "<-- initial render");
-        setSunApiData({ sunriseTime: data.sunrise, sunsetTime: data.sunset});
+        setSunriseApiData({ sunriseTime: data.sunrise});
+        setSunsetApiData({sunsetTime: data.sunset})
       });
   }
   
@@ -109,13 +111,13 @@ export default function SunFeedPage({user, handleLogout}) {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <SunSearch sunApiData={sunApiData}/>
+        <Grid.Column>
+          <LandingMessage />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column>
-          <LandingMessage />
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <SunSearch sunriseApiData={sunriseApiData} sunsetApiData={sunsetApiData}/>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
