@@ -42,13 +42,10 @@ function create(req, res){
 
 async function index(req, res){
     try {
-        // this populates the user when you find the posts
-        // so you'll have access to the users information 
-        // when you fetch teh posts
         const sunPosts = await SunPost.find({}).populate('user').exec()
 
+        //counts number of posts per user and passes to json
         const sunTokens = sunPosts.length
-        console.log(sunTokens, 'SUNPOSTS.LENGTH')
         res.status(200).json({sunPosts, sunTokens})
         
     } catch(err){
