@@ -6,7 +6,6 @@ const upload = multer(); // <- handles multipart/formdata requests(photos)
 // /*---------- Public Routes ----------*/
 router.post('/', upload.single('photo'), sunPostsCtrl.create);
 router.get('/', isLoggedIn, sunPostsCtrl.index)
-
 router.delete('/:id', isLoggedIn, sunPostsCtrl.deleteSunPost)
 
 
