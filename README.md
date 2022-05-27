@@ -12,6 +12,7 @@ SunCatcher is space where you can collect all of your beautiful sunrise and suns
 - MongoDB/Mongoose
 - Express
 - Node.js
+- Semantic UI
 - Javascript
 - CSS
 - API: ipgeolocation.io
