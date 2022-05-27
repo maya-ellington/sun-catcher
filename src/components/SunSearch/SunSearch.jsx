@@ -12,7 +12,7 @@ export default function SunSearch({sunriseApiData, sunsetApiData}){
     }
 
     function handleSunsetClick() {
-      setSunsetButtonText('Sunset:  ' + sunsetApiData.sunsetTime + ' PM');
+      setSunsetButtonText('Sunset:  ' + (Math.abs(sunsetApiData.sunsetTime) - 1200) + ' PM');
     }
   
     return (

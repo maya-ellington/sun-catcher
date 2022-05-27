@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import './SunFeedPage.css';
 import { Grid } from "semantic-ui-react";
 
 import PageHeader from "../../components/Header/Header";
@@ -10,6 +12,8 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 
 import * as sunPostsAPI from "../../utils/sunPostApi";
+
+
 
 
 
@@ -105,7 +109,7 @@ export default function SunFeedPage({user, handleLogout}) {
   } 
 
   return (
-    <Grid centered>
+    <Grid centered className='page'>
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user}/>
@@ -113,7 +117,7 @@ export default function SunFeedPage({user, handleLogout}) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <LandingMessage />
+          <LandingMessage className='landing' />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
