@@ -81,12 +81,12 @@ export default function ProfilePage(props) {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
-          <Grid.Column style={{ maxWidth: 750 }}>
+          <Grid.Column style={{ maxWidth: 1000 }}>
           <SunTokens sunTokens={sunTokens} user={props.user}/>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
-          <Grid.Column style={{ maxWidth: 750 }}>
+          <Grid.Column style={{ maxWidth: 1000 }}>
           <SunGallery
               isProfile={true}
               sunPosts={sunPosts}

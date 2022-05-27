@@ -12,7 +12,7 @@ export default function SunPostCard({ removeSunPost, sunPost, isProfile }){
   if (isProfile) {
     return (
       <Card key={sunPost._id} raised>
-        <Image src={`${sunPost.photoUrl}`} wrapped ui={false} />
+        <Image src={`${sunPost.photoUrl}`} wrapped ui={false} circular />
         <Card.Content>
           <Card.Description>{sunPost.location}</Card.Description>
           <Card.Description>{sunPost.date}</Card.Description>
