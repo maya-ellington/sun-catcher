@@ -1,4 +1,4 @@
-### SunCatcher
+## SunCatcher
 SunCatcher is space where you can collect all of your beautiful sunrise and sunset moments and collect Sun Tokens for each experience you caught, as well as where you can go to get information about the sunrise/sunset time based on your location.
 
 ## Screenshot(s): 
