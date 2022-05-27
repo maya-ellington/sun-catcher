@@ -19,3 +19,13 @@
 .button-div {
     text-align: center;
 }
+
+.sun-tokens {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.sun-tokens-border {
+    padding: 10px;
+}

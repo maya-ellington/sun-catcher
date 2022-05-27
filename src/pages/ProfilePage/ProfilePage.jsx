@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Image, Segment } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 import PageHeader from "../../components/Header/Header";
 import SunGallery from "../../components/SunGallery/SunGallery";
@@ -20,7 +20,6 @@ export default function ProfilePage(props) {
     const [sunPosts, setSunPosts] = useState([]);
     const [sunTokens, setSunTokens] = useState("");
 
-    // We need to grab the username out of the url,
     const { username } = useParams();
   
     function ObjectLength( object ) {
@@ -35,23 +34,21 @@ export default function ProfilePage(props) {
   
     async function getProfile() {
       try {
+
         const data = await userService.getProfile(username);
-        console.log( data.sunPosts, " < -- data");
 
         setLoading(() => false);
         setUser(() => data.user);
         setSunPosts(() => data.sunPosts);
         setSunTokens(() => ObjectLength(data.sunPosts))
-        console.log( ObjectLength(data.sunPosts), " < -- ObjectLength(data)");
+
       } catch (err) {
         console.log(err);
         setError("Profile Doesn't exists, CHECK YOUR TERMINAL FOR EXPRESS!");
       }
     }
   
-  
-    // then when the component loads we can use that username to fetch all the users data
-    // then we can store that in state
+    
     useEffect(() => {
       getProfile();
     }, []);

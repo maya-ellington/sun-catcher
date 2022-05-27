@@ -14,12 +14,6 @@ import Loading from "../../components/Loader/Loader";
 import * as sunPostsAPI from "../../utils/sunPostApi";
 
 
-
-
-
-
-
-
 export default function SunFeedPage({user, handleLogout}) {
   console.log(sunPostsAPI, " <-- sunPostsAPI")
   const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of the each post in the posts array
@@ -32,9 +26,7 @@ export default function SunFeedPage({user, handleLogout}) {
   async function handleAddSunPost(sunPost) {
     try {
       setLoading(true);
-      const data = await sunPostsAPI.create(sunPost); // our server is going to return
-      // the created post, that will be inside of data, which is the response from
-      // the server, we then want to set it in state
+      const data = await sunPostsAPI.create(sunPost); 
       console.log(data, " this is response from the server, in handleAddPost");
       setSunPosts([data.sunPost, ...sunPosts]);
       setLoading(false);
@@ -51,14 +43,11 @@ export default function SunFeedPage({user, handleLogout}) {
       setSunPosts([...data.sunPosts]);
       setLoading(false);
     } catch (err) {
-      // console.log(err.message, " this is the error");
+      console.log(err.message, " this is the error");
       setError(err.message);
     }
   }
 
-  // useEffect runs once
-  // the component is first rendered (whenever you first view the component)
-  // Component Lifecycle in react
   useEffect(() => {
     getSunPosts();
   }, []);
@@ -76,10 +65,10 @@ export default function SunFeedPage({user, handleLogout}) {
     fetch(sunUrl)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.sunrise)
+
         setSunriseApiData({sunriseTime: data.sunrise})
         setSunsetApiData({sunsetTime: data.sunset})
-        console.log(sunriseApiData, 'sunriseApiData')
+
       });
   }
   

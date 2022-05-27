@@ -34,13 +34,8 @@ export default function AddSunEventForm(props){
     formData.append('date', state.date)
     formData.append('description', state.description)
     formData.append('location', state.location)
-
-
-
-
-    props.handleAddSunPost(formData); 
     
-    // Have to submit the form now! We need a function!
+    props.handleAddSunPost(formData); 
   }
 
 
