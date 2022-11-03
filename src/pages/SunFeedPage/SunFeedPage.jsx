@@ -15,8 +15,8 @@ import * as sunPostsAPI from "../../utils/sunPostApi";
 
 
 export default function SunFeedPage({user, handleLogout}) {
-  console.log(sunPostsAPI, " <-- sunPostsAPI")
-  const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of the each post in the posts array
+  // console.log(sunPostsAPI, " <-- sunPostsAPI")
+  const [sunPosts, setSunPosts] = useState([]); // <- likes are inside of each post in the posts array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [sunriseApiData, setSunriseApiData] = useState({});
@@ -27,7 +27,7 @@ export default function SunFeedPage({user, handleLogout}) {
     try {
       setLoading(true);
       const data = await sunPostsAPI.create(sunPost); 
-      console.log(data, " this is response from the server, in handleAddPost");
+      // console.log(data, " this is response from the server, in handleAddPost");
       setSunPosts([data.sunPost, ...sunPosts]);
       setLoading(false);
     } catch (err) {
@@ -39,7 +39,7 @@ export default function SunFeedPage({user, handleLogout}) {
   async function getSunPosts() {
     try {
       const data = await sunPostsAPI.getAll();
-      console.log(data, " this is data,");
+      // console.log(data, " this is data,");
       setSunPosts([...data.sunPosts]);
       setLoading(false);
     } catch (err) {
@@ -55,7 +55,7 @@ export default function SunFeedPage({user, handleLogout}) {
   async function deleteSunPost(id) {
     const data = await sunPostsAPI.removeSunPost(id)
     getSunPosts();
-    console.log(data)
+    // console.log(data)
   }
 
 
