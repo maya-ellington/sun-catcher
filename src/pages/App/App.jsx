@@ -38,7 +38,9 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
-      <Route path="/:username" element={<ProfilePage user={user} handleLogout={handleLogout}  />} />
+        <Route path="/:username"
+          element={<ProfilePage user={user} handleLogout={handleLogout}  />} 
+        />
 
       </Routes>
     );
